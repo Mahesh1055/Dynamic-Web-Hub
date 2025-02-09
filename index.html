@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Web Hub</title>
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Google Material Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+/* General Styles */
+/* Header Styling */
+/* Global Styles */
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0a0a0a;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* Header Styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: linear-gradient(90deg, #000000, #000000);
+    box-shadow: 0px 4px 10px rgb(0, 0, 0);
+    width: 100%;
+}
+
+/* Navigation Menu */
+.nav-menu {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-menu li {
+    margin: 0;
+}
+
+.nav-menu a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+    white-space: nowrap;
+}
+
+.nav-menu a:hover {
+    color: #ffcc00;
+}
+
+/* Profile Section */
+.profile-section {
+    margin-left: auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Profile Container */
+.profile-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    background: #222;
+    padding: 8px 12px;
+    border-radius: 20px;
+    transition: background 0.3s ease;
+    position: relative;
+    z-index: 999; /* Ensures the dropdown stays on top */
+}
+
+.profile-container:hover {
+    background: #333;
+}
+
+/* Profile Icon */
+.profile-icon {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: #ffcc00;
+    color: #000;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Profile Dropdown */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background: #000000;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    width: 180px;
+    text-align: center;
+    z-index: 1000; /* Makes sure it's above other elements */
+    color:red;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px;
+    color: #ffcc00;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.dropdown-menu a:hover {
+    background: #333;
+}
+
+/* Show Dropdown */
+.profile-container.active .dropdown-menu {
+    display: block;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .nav-menu {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .profile-section {
+        order: 1; /* Keeps profile at the right side */
+        margin-left: auto;
+    }
+
+    .profile-container {
+        padding: 5px 10px;
+    }
+
+    .profile-icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .dropdown-menu {
+        right: 0;
+        left: auto;
+    }
+}
+  
+
+       /* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 50px;
+    background: url('https://www.shutterstock.com/image-vector/application-programming-interface-api-software-600nw-2227329583.jpg') 
+        no-repeat center center/cover;
+    position: relative;
+    color: white;
+    z-index: 1;
+    height: 100vh;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: -1;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-size: 3em;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ffcc00;
+    margin-bottom: 10px;
+}
+
+.hero h2 {
+    font-size: 2em;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.hero p {
+    font-size: 1.2em;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.hero button {
+    background: #ffcc00;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin: 10px 10px 0 0;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.hero button:hover {
+    background: #e6b800;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero {
+        padding: 60px 20px;
+        text-align: center;
+        justify-content: center;
+        height: auto;
+        min-height: 80vh;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero h1 {
+        font-size: 2em;
+    }
+
+    .hero h2 {
+        font-size: 1.5em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    .hero button {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+}
+    /* Features Section */
+.features-section {
+    padding: 80px 0;
+    background-color: #373636;
+    text-align: center;
+}
+
+/* Features Grid */
+.features-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 90%;
+    margin: auto;
+    padding: 0 20px;
+}
+
+/* Feature Box */
+.feature-container {
+    perspective: 1200px;
+    width: 100%;
+    height: 340px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Flip Card */
+.feature-box {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.7s ease-in-out;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* Flip on Hover */
+.feature-container:hover .feature-box {
+    transform: rotateY(180deg);
+}
+
+/* Front & Back Side */
+.feature-front, .feature-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Glassmorphism Neon Background */
+.feature-front {
+    background: rgb(0, 0, 0);
+    border: 2px solid rgba(255, 204, 0, 0.3);
+    box-shadow: 0px 0px 20px rgba(255, 204, 0, 0.7);
+}
+
+/* Back Side */
+.feature-back {
+    transform: rotateY(180deg);
+    background: rgba(25, 25, 25, 0.9);
+    border: 2px solid rgba(255, 204, 0, 0.5);
+    box-shadow: 0px 0px 25px rgba(255, 204, 0, 1);
+}
+
+/* Icon */
+.feature-icon {
+    font-size: 55px;
+    color: #ffcc00;
+    text-shadow: 0 0 15px #ffcc00, 0 0 30px #ffcc00;
+    transition: 0.3s;
+}
+
+/* Icon Hover Effect */
+.feature-container:hover .feature-icon {
+    transform: scale(1.2);
+}
+
+/* Title */
+h3 {
+    margin-top: 15px;
+    font-size: 1.5em;
+    color: white;
+    font-weight: bold;
+}
+
+/* Description */
+.feature-back p {
+    color: #d3d3d3;
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+/* Button */
+.btn-neon {
+    background: #ffcc00;
+    border: none;
+    padding: 12px 18px;
+    font-weight: bold;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #000000;
+    transition: 0.3s;
+    box-shadow: 0 0 10px #ffcc00;
+}
+
+.btn-neon:hover {
+    background: #e6b800;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #ffcc00;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .features-container {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-container {
+        width: 90%;
+        max-width: 320px;
+        height: 320px;
+    }
+}
+
+
+/* Review Section */
+/* Review Section */
+#user-reviews {
+    background: #0a0a0a;
+    padding: 60px 20px;
+    text-align: center;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Section Title */
+.section-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #ffcc00;
+    text-shadow: 0 0 15px #ffcc00;
+}
+
+/* Reviews Container */
+.reviews-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin-bottom: 40px;
+}
+
+/* Review Card */
+.review-item {
+    background: rgba(0, 0, 0, 0.9);
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 15px rgba(255, 204, 0, 0.4);
+    transition: transform 0.4s ease, box-shadow 0.3s ease;
+    position: relative;
+    backdrop-filter: blur(8px);
+}
+
+/* Hover Effect */
+.review-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 20px rgba(255, 204, 0, 0.8);
+}
+
+/* Reviewer Name */
+.reviewer-name {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffcc00;
+    margin-bottom: 10px;
+}
+
+/* Review Text */
+.review-text {
+    font-size: 16px;
+    color: #ddd;
+    line-height: 1.6;
+}
+
+/* Centered Review Form */
+.review-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    background: rgb(0, 0, 0);
+    border-radius: 15px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0px 0px 20px rgba(255, 204, 0, 0.5);
+    backdrop-filter: blur(12px);
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* Form Title */
+.form-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #ffcc00;
+    text-shadow: 0 0 10px #ffcc00;
+}
+
+/* Input Fields */
+.input-field {
+    width: 100%;
+    padding: 14px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 10px;
+    background: rgba(50, 50, 50, 0.8);
+    color: white;
+    font-size: 16px;
+    box-shadow: inset 0px 0px 10px rgba(255, 204, 0, 0.4);
+    transition: 0.3s;
+}
+
+/* Input Focus */
+.input-field:focus {
+    outline: none;
+    box-shadow: 0px 0px 20px rgba(255, 204, 0, 0.6);
+}
+
+/* Placeholder */
+.input-field::placeholder {
+    color: #bbb;
+}
+
+/* Submit Button */
+.submit-btn {
+    background: #ffcc00;
+    color: black;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    width: 100%;
+    font-weight: bold;
+    box-shadow: 0px 0px 15px rgba(255, 204, 0, 0.5);
+}
+
+/* Submit Button Hover */
+.submit-btn:hover {
+    background: #ffaa00;
+    box-shadow: 0px 0px 20px rgba(255, 204, 0, 0.8);
+}
+
+/* Submitted Review Styling */
+.review-item.submitted {
+    background: rgba(50, 50, 50, 1);
+    border-left: 5px solid #ffcc00;
+    box-shadow: 0px 0px 20px rgba(255, 204, 0, 0.6);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .reviews-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .review-form-container {
+        width: 100%;
+        max-width: 90%;
+    }
+}
+    
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(90deg, #000000, #000000);
+            margin-top: 40px;
+        }
+        .footer-links {
+            margin-top: 10px;
+        }
+        .footer-links a {
+            color: #ffcc00;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        /* Modal Styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #333;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            color: #fff;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: #ffcc00;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .confirm-btn {
+            background: #ffcc00;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+        .confirm-btn:hover {
+            background: #e6b800;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>DWH</h1>
+        <ul class="nav-menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Applications</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            
+            <!-- Profile Section Inside Navbar -->
+            <li class="profile-section">
+                <div class="profile-container" onclick="toggleProfileMenu()">
+                    <div class="profile-icon" id="profileIcon">JD</div>
+                    <span id="username">Guest</span>
+                    <div class="dropdown-menu" id="profileMenu">
+                        <p id="userStatus">You are not logged in</p>
+                        <a href="#" id="loginLink">Login</a>
+                        <a href="#" id="signupLink">Sign Up</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Dynamic Web Hub</h1>
+            <h2>All AI Tools in One Place</h2>
+            <p>Explore a collection of the most powerful AI tools—weather maps, chatbots, voice recognition, and more.</p>
+            <button>Explore Now</button>
+            <button>Get Started</button>
+        </div>
+    </section>
+    
+
+    <section class="features-section">
+        <div class="features-container">
+            <!-- Feature 1 -->
+            <div class="feature-container">
+                <div class="feature-box">
+                    <div class="feature-front">
+                        <span class="material-icons feature-icon">cloud</span>
+                        <h3>Weather Map</h3>
+                    </div>
+                    <div class="feature-back">
+                        <p>View real-time weather with interactive maps.</p>
+                        <a href="weather/index.html" class="btn btn-neon">See current Wheather</a>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Feature 2 -->
+            <div class="feature-container">
+                <div class="feature-box">
+                    <div class="feature-front">
+                        <span class="material-icons feature-icon">chat</span>
+                        <h3>MiniSearchAI Chatbot</h3>
+                    </div>
+                    <div class="feature-back">
+                        <p>Engage in AI-powered conversations.</p>
+                        <a href="/AI_Chatbot/index.html" class="btn btn-neon">Open MiniSearchAI</a>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Feature 3 -->
+            <div class="feature-container">
+                <div class="feature-box">
+                    <div class="feature-front">
+                        <span class="material-icons feature-icon">mic</span>
+                        <h3>Voice-to-Text</h3>
+                    </div>
+                    <div class="feature-back">
+                        <p>Convert speech to text with high accuracy.</p>
+                        <a href="speech to text converter/index.html" class="btn btn-neon">Start Converting</a>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Feature 4 -->
+            <div class="feature-container">
+                <div class="feature-box">
+                    <div class="feature-front">
+                        <span class="material-icons feature-icon">image</span>
+                        <h3>AI Image Generator</h3>
+                    </div>
+                    <div class="feature-back">
+                        <p>Generate high-quality images using AI.</p>
+                        <a href="Image generator/index.html" class="btn btn-neon">Generate Image</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        <section id="user-reviews">
+            <h2 class="section-title">User Reviews</h2>
+        
+            <!-- Reviews Container -->
+            <div class="reviews-container" id="reviews-list">
+                <!-- Dynamic reviews will be added here -->
+            </div>
+        
+            <!-- Review Form -->
+            <div class="review-form-container">
+                <h3 class="form-title">Add Your Review</h3>
+        
+                <!-- Star Rating -->
+                <div class="rating-container">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+        
+                <!-- Review Input -->
+                <textarea id="user-review" class="input-field" placeholder="Write your review..." required></textarea>
+        
+                <!-- Submit Button -->
+                <button class="submit-btn" onclick="addUserReview()">Submit Review</button>
+            </div>
+        </section>
+        
+
+    <footer>
+        <p>&copy; 2025 Dynamic Web Applications Hub. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Support</a>
+        </div>
+    </footer>
+
+    <!-- Modal Structure -->
+    <div id="feature-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="feature-title">Feature Title</h2>
+            <p id="feature-description">Feature Description</p>
+            <button class="confirm-btn" onclick="confirmFeature()">Confirm</button>
+        </div>
+    </div>
+
+    <script>
+ let isLoggedIn = false; // Change to true if user is logged in
+const username = "John Doe"; // Example username
+const profileMenu = document.getElementById("profileMenu");
+const profileIcon = document.getElementById("profileIcon");
+const usernameDisplay = document.getElementById("username");
+const userStatus = document.getElementById("userStatus");
+const loginLink = document.getElementById("loginLink");
+const signupLink = document.getElementById("signupLink");
+
+function toggleProfileMenu() {
+    profileMenu.style.display = (profileMenu.style.display === "block") ? "none" : "block";
+}
+
+// Simulating login check
+if (isLoggedIn) {
+    usernameDisplay.textContent = username;
+    userStatus.textContent = "Welcome, " + username;
+    loginLink.style.display = "none";
+    signupLink.style.display = "none";
+
+    // Generate profile initials
+    let initials = username.split(" ").map(name => name[0]).join("").toUpperCase();
+    profileIcon.textContent = initials;
+} else {
+    usernameDisplay.textContent = "Guest";
+    profileIcon.textContent = "G";
+}
+
+
+// Close dropdown when clicking outside
+document.addEventListener("click", function (event) {
+    const profileDropdown = document.querySelector(".profile-dropdown");
+    if (!profileDropdown.contains(event.target)) {
+        document.getElementById("profile-menu").classList.remove("show");
+    }
+});
+
+
+        // Feature Details for Modals
+        const features = {
+            "weather-map": {
+                title: "Weather Map",
+                description: "Real-time weather data with interactive maps."
+            },
+            "chatbot": {
+                title: "MiniSearchAI ",
+                description: "AI chatbot for intelligent conversations."
+            },
+            "voice-to-text": {
+                title: "Voice-to-Text Converter",
+                description: "Accurate speech recognition and transcription."
+            },
+            "image-generator": {
+                title: "AI Image Generator",
+                description: "Create high-quality AI-generated images."
+            }
+        };
+
+        // Show the feature modal
+        function showFeatureModal(featureId) {
+            const feature = features[featureId];
+            document.getElementById("feature-title").textContent = feature.title;
+            document.getElementById("feature-description").textContent = feature.description;
+            document.getElementById("feature-modal").style.display = "block";
+        }
+
+        // Close the modal
+        document.querySelector(".close").onclick = function() {
+            document.getElementById("feature-modal").style.display = "none";
+        }
+
+        // Close the modal if the user clicks anywhere outside of it
+        window.onclick = function(event) {
+            if (event.target === document.getElementById("feature-modal")) {
+                document.getElementById("feature-modal").style.display = "none";
+            }
+        }
+
+    // Function to get logged-in username (simulate authentication)
+    document.addEventListener("DOMContentLoaded", function () {
+    let selectedRating = 0; // Store selected rating
+
+    // Handle star rating selection
+    document.querySelectorAll(".star").forEach(star => {
+        star.addEventListener("click", function () {
+            selectedRating = parseInt(this.getAttribute("data-value"));
+            updateStarRating(selectedRating);
+        });
+    });
+
+    function updateStarRating(rating) {
+        document.querySelectorAll(".star").forEach(star => {
+            let value = parseInt(star.getAttribute("data-value"));
+            if (value <= rating) {
+                star.style.color = "#ffcc00"; // Highlight selected stars
+            } else {
+                star.style.color = "#ccc"; // Reset unselected stars
+            }
+        });
+    }
+
+    // Function to add user review
+    window.addUserReview = function () {
+        let reviewText = document.getElementById("user-review").value.trim();
+        let username = getLoggedInUsername(); // Get logged-in username
+        let timestamp = new Date().toLocaleString(); // Get current date & time
+
+        if (!reviewText) {
+            alert("Please write a review before submitting.");
+            return;
+        }
+        if (selectedRating === 0) {
+            alert("Please select a star rating.");
+            return;
+        }
+
+        let reviewsContainer = document.getElementById("reviews-list");
+
+        // Create review element
+        let reviewItem = document.createElement("div");
+        reviewItem.classList.add("review-item");
+
+        reviewItem.innerHTML = `
+            <div class="review-header">
+                <div class="review-avatar">${username.charAt(0).toUpperCase()}</div>
+                <div class="review-info">
+                    <h4 class="reviewer-name">${username}</h4>
+                    <span class="review-date">${timestamp}</span>
+                </div>
+            </div>
+            <div class="review-rating">${getStarIcons(selectedRating)}</div>
+            <p class="review-text">${reviewText}</p>
+        `;
+
+        // Add to the review list
+        reviewsContainer.prepend(reviewItem);
+
+        // Clear form after submission
+        document.getElementById("user-review").value = "";
+        updateStarRating(0);
+        selectedRating = 0;
+    };
+
+    // Function to simulate fetching the logged-in username
+    function getLoggedInUsername() {
+        return "GuestUser"; // Replace with actual login system
+    }
+
+    // Function to generate star icons based on rating
+    function getStarIcons(rating) {
+        let stars = "";
+        for (let i = 1; i <= 5; i++) {
+            stars += `<span class="star-icon" style="color: ${i <= rating ? '#ffcc00' : '#ccc'};">&#9733;</span>`;
+        }
+        return stars;
+    }
+});
+
+    </script>
+</body>
+</html>
