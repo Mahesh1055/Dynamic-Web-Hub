@@ -146,12 +146,13 @@ header {
 .hero {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center; /* Center content horizontally */
     height: 100vh;
     padding: 80px;
     background: linear-gradient(135deg, #0a0a0a, #141428);
     position: relative;
     overflow: hidden;
+    text-align: center; /* Ensure text alignment is centered */
 }
 
 /* Hero Background Effect */
@@ -173,7 +174,7 @@ header {
     max-width: 600px;
     position: relative;
     z-index: 2;
-    text-align: left;
+    text-align: center; /* Center text inside */
 }
 
 /* Hero Title */
@@ -208,6 +209,7 @@ header {
 /* Hero Buttons */
 .hero-buttons {
     display: flex;
+    justify-content: center; /* Center buttons */
     gap: 15px;
     flex-wrap: wrap;
 }
@@ -268,9 +270,6 @@ header {
         width: 100%;
     }
 }
-
-
-/* Features Section */
 /* Features Section */
 .features-section {
     padding: 80px 0;
@@ -278,20 +277,20 @@ header {
     text-align: center;
 }
 
-/* Features Grid */
+/* Features Grid - Fixed Layout for PC */
 .features-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(4, 1fr); /* Ensures 4 columns on large screens */
     gap: 30px;
-    max-width: 90%;
+    max-width: 1200px; /* Keeps layout consistent */
     margin: auto;
     padding: 0 20px;
 }
 
 /* Feature Box Container */
 .feature-container {
-    perspective: 1000px; /* Less depth for a softer effect */
-    width: 100%;
+    perspective: 1000px;
+    width: 280px; /* Fixed width for consistency */
     height: 340px;
     display: flex;
     align-items: center;
@@ -304,14 +303,14 @@ header {
     height: 100%;
     position: relative;
     transform-style: preserve-3d;
-    transition: transform 0.4s ease-in-out; /* Reduced transition time */
+    transition: transform 0.4s ease-in-out;
     border-radius: 20px;
     cursor: pointer;
 }
 
 /* Subtle Flip on Hover */
 .feature-container:hover .feature-box {
-    transform: rotateY(200deg); /* Less rotation to keep it soft */
+    transform: rotateY(200deg);
 }
 
 /* Front & Back Side */
@@ -340,7 +339,7 @@ header {
 
 /* Back Side */
 .feature-back {
-    transform: rotateY(160deg); /* Matches the reduced flip effect */
+    transform: rotateY(160deg);
     background: rgba(25, 25, 25, 0.85);
     border: 1px solid rgba(255, 0, 255, 0.3);
     box-shadow: 0 0 18px rgba(255, 0, 255, 0.8);
@@ -352,12 +351,12 @@ header {
     font-size: 50px;
     color: #00eaff;
     text-shadow: 0 0 12px #00eaff;
-    transition: transform 0.2s ease-in-out; /* Softer scaling */
+    transition: transform 0.2s ease-in-out;
 }
 
 /* Slight Hover Effect */
 .feature-container:hover .feature-icon {
-    transform: scale(1.1); /* Smaller scaling effect */
+    transform: scale(1.1);
 }
 
 /* Title */
@@ -390,13 +389,21 @@ h3 {
     box-shadow: 0 0 10px #00eaff;
 }
 
+/* Button Hover Effect */
 .btn-neon:hover {
     background: linear-gradient(135deg, #ff00ff, #00eaff);
-    transform: scale(1.05); /* Less intense scaling */
+    transform: scale(1.05);
     box-shadow: 0 0 15px #ff00ff;
 }
 
-/* Mobile Responsive */
+/* Ensure the same layout on all PC screens */
+@media (min-width: 1024px) {
+    .features-container {
+        grid-template-columns: repeat(4, 1fr); /* Always 4 columns on large screens */
+    }
+}
+
+/* Mobile Responsive - No changes */
 @media (max-width: 768px) {
     .features-container {
         grid-template-columns: 1fr;
@@ -408,6 +415,7 @@ h3 {
         height: 320px;
     }
 }
+
 
 /* Review Section */
 #user-reviews {
