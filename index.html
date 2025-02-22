@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,14 +8,17 @@
     <!-- Google Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Bootstrap CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Google Material Icons -->
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <style>
+        
 
-body {
+
+        /* Global Styles */
+        body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
@@ -23,15 +27,29 @@ body {
     overflow-x: hidden;
 }
 
-/* Header Styling */
+/* Header */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
-    background: #000000;
+    background: rgba(0, 0, 0, 0.6); /* Glass effect */
+    backdrop-filter: blur(10px);
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
     width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* Brand Name */
+h1 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #00F7FF;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 /* Navigation Menu */
@@ -39,404 +57,305 @@ header {
     list-style: none;
     display: flex;
     align-items: center;
-    gap: 18px;
-    flex-wrap: wrap;
+    gap: 20px;
     padding: 0;
     margin: 0;
 }
 
 .nav-menu a {
-    color: #00F7FF;
+    color: #ffffff;
     text-decoration: none;
     font-weight: 600;
-    transition: color 0.3s ease-in-out;
-}
-
-.nav-menu a:hover {
-    color: #c50cbb;
-}
-
-/* Profile Section */
-.profile-section {
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-}
-
-/* Profile Container */
-.profile-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-    background: #222;
-    padding: 8px 12px;
-    border-radius: 20px;
-    transition: background 0.3s ease;
-}
-
-.profile-container:hover {
-    background: #333;
-}
-
-/* Profile Icon */
-.profile-icon {
-    width: 35px;
-    height: 35px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    background: #c50cbb;
-    color: #000;
-    font-weight: bold;
-}
-
-/* Profile Dropdown */
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 50px;
-    right: 0;
-    background: #000000;
+    padding: 10px 15px;
     border-radius: 8px;
-    padding: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-    width: 180px;
-    text-align: center;
-}
-
-.dropdown-menu a {
-    display: block;
-    padding: 10px;
-    color: #c50cbb;
-    text-decoration: none;
-    transition: background 0.3s ease-in-out;
-}
-
-.dropdown-menu a:hover {
-    background: #333;
-}
-
-/* Show Dropdown */
-.profile-container.active .dropdown-menu {
-    display: block;
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-    .nav-menu {
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 12px;
-        width: 100%;
-    }
-
-    .profile-section {
-        order: 1;
-        margin-left: auto;
-    }
-
-    .dropdown-menu {
-        right: 0;
-    }
-}
-
-/* Hero Section */
-.hero {
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Center content horizontally */
-    height: 100vh;
-    padding: 80px;
-    background: linear-gradient(135deg, #0a0a0a, #141428);
+    transition: all 0.3s ease-in-out;
     position: relative;
-    overflow: hidden;
-    text-align: center; /* Ensure text alignment is centered */
 }
 
-/* Hero Background Effect */
-.hero::after {
-    content: "";
+/* Neon Hover Effect */
+.nav-menu a::before {
+    content: '';
     position: absolute;
-    top: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #c50cbb, #00F7FF);
+    bottom: -2px;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('https://www.shutterstock.com/image-vector/application-programming-interface-api-design-600nw-2227417651.jpg') 
-        no-repeat center center/cover;
-    opacity: 0.4;
-    z-index: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
 }
 
-/* Hero Content */
-.hero-content {
-    max-width: 600px;
-    position: relative;
-    z-index: 2;
-    text-align: center; /* Center text inside */
-}
-
-/* Hero Title */
-.hero h1 {
-    font-size: 3em;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: #1eb3ff;
-    letter-spacing: 2px;
-    text-shadow: 0 0 10px rgba(30, 179, 255, 0.6);
-    margin-bottom: 10px;
-}
-
-/* Hero Subtitle */
-.hero h2 {
-    font-size: 1.8em;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-    color: #d37eff;
-    text-shadow: 0 0 6px rgba(211, 126, 255, 0.5);
-}
-
-/* Hero Description */
-.hero p {
-    font-size: 1.1em;
-    font-weight: 400;
-    line-height: 1.6;
-    color: #e0e0e0;
-    margin-bottom: 20px;
-}
-
-/* Hero Buttons */
-.hero-buttons {
-    display: flex;
-    justify-content: center; /* Center buttons */
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-/* Hero Button */
-.hero button {
-    background: linear-gradient(135deg, #1eb3ff, #d37eff);
-    border: none;
-    padding: 12px 24px;
-    font-size: 1.1em;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    color: #fff;
-    font-weight: 600;
-    box-shadow: 0 0 10px rgba(30, 179, 255, 0.4);
-}
-
-/* Button Hover Effect */
-.hero button:hover {
-    background: linear-gradient(135deg, #d37eff, #1eb3ff);
-    box-shadow: 0 0 12px rgba(30, 179, 255, 0.6);
-    transform: translateY(-2px);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .hero {
-        height: auto;
-        min-height: 75vh;
-        padding: 50px 40px;
-    }
-
-    .hero-content {
-        max-width: 100%;
-    }
-
-    .hero h1 {
-        font-size: 2.4em;
-    }
-
-    .hero h2 {
-        font-size: 1.6em;
-    }
-
-    .hero p {
-        font-size: 1em;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .hero button {
-        font-size: 1em;
-        padding: 10px 18px;
-        width: 100%;
-    }
-}
-/* Features Section */
-.features-section {
-    padding: 80px 0;
-    background-color: #0a0a0a;
-    text-align: center;
-}
-
-/* Features Grid - Fixed Layout for PC */
-.features-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Ensures 4 columns on large screens */
-    gap: 30px;
-    max-width: 1200px; /* Keeps layout consistent */
-    margin: auto;
-    padding: 0 20px;
-}
-
-/* Feature Box Container */
-.feature-container {
-    perspective: 1000px;
-    width: 280px; /* Fixed width for consistency */
-    height: 340px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Flip Card Effect */
-.feature-box {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.4s ease-in-out;
-    border-radius: 20px;
-    cursor: pointer;
-}
-
-/* Subtle Flip on Hover */
-.feature-container:hover .feature-box {
-    transform: rotateY(200deg);
-}
-
-/* Front & Back Side */
-.feature-front,
-.feature-back {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    backface-visibility: hidden;
-    border-radius: 20px;
-    padding: 25px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-/* Front Side - Glass Neon Effect */
-.feature-front {
-    background: rgba(0, 0, 0, 0.7);
-    border: 1px solid rgba(0, 234, 255, 0.3);
-    box-shadow: 0 0 15px rgba(0, 234, 255, 0.6);
-    backdrop-filter: blur(8px);
-}
-
-/* Back Side */
-.feature-back {
-    transform: rotateY(160deg);
-    background: rgba(25, 25, 25, 0.85);
-    border: 1px solid rgba(255, 0, 255, 0.3);
-    box-shadow: 0 0 18px rgba(255, 0, 255, 0.8);
-    backdrop-filter: blur(8px);
-}
-
-/* Icon */
-.feature-icon {
-    font-size: 50px;
-    color: #00eaff;
-    text-shadow: 0 0 12px #00eaff;
-    transition: transform 0.2s ease-in-out;
-}
-
-/* Slight Hover Effect */
-.feature-container:hover .feature-icon {
-    transform: scale(1.1);
-}
-
-/* Title */
-h3 {
-    margin-top: 10px;
-    font-size: 1.5em;
-    color: white;
-    font-weight: bold;
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
-}
-
-/* Description */
-.feature-back p {
-    color: #d3d3d3;
-    font-size: 1em;
-    margin-bottom: 12px;
-    line-height: 1.5;
-}
-
-/* Neon Button */
-.btn-neon {
-    background: linear-gradient(135deg, #00eaff, #ff00ff);
-    border: none;
-    padding: 10px 16px;
-    font-weight: 600;
-    border-radius: 6px;
-    text-decoration: none;
-    color: #000;
-    transition: 0.2s ease-in-out;
-    box-shadow: 0 0 10px #00eaff;
-}
-
-/* Button Hover Effect */
-.btn-neon:hover {
-    background: linear-gradient(135deg, #ff00ff, #00eaff);
-    transform: scale(1.05);
-    box-shadow: 0 0 15px #ff00ff;
-}
-
-/* Ensure the same layout on all PC screens */
-@media (min-width: 1024px) {
-    .features-container {
-        grid-template-columns: repeat(4, 1fr); /* Always 4 columns on large screens */
-    }
-}
-
-/* Mobile Responsive - No changes */
-@media (max-width: 768px) {
-    .features-container {
-        grid-template-columns: 1fr;
-    }
-
-    .feature-container {
-        width: 90%;
-        max-width: 320px;
-        height: 320px;
-    }
+.nav-menu a:hover::before {
+    transform: scaleX(1);
 }
 
 
-/* Review Section */
+
+
+        /* Profile Section */
+        .profile-section {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Profile Container */
+        .profile-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            background: #222;
+            padding: 8px 12px;
+            border-radius: 20px;
+            transition: background 0.3s ease;
+        }
+
+        .profile-container:hover {
+            background: #333;
+        }
+
+        /* Profile Icon */
+        .profile-icon {
+            width: 35px;
+            height: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            background: #c50cbb;
+            color: #000;
+            font-weight: bold;
+        }
+
+        /* Profile Dropdown */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 50px;
+            right: 0;
+            background: #000000;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+            width: 180px;
+            text-align: center;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px;
+            color: #c50cbb;
+            text-decoration: none;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .dropdown-menu a:hover {
+            background: #333;
+        }
+
+        /* Show Dropdown */
+        .profile-container.active .dropdown-menu {
+            display: block;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-menu {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 12px;
+                width: 100%;
+            }
+
+            .profile-section {
+                order: 1;
+                margin-left: auto;
+            }
+
+            .dropdown-menu {
+                right: 0;
+            }
+        }
+
+     /* Hero Section */
+     .hero {
+        margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100vh;
+            padding: 50px;
+            box-sizing: border-box;
+            background: url('https://www.shutterstock.com/image-vector/application-programming-interface-api-design-600nw-2227417651.jpg') no-repeat center center/cover;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Overlay for better text readability */
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        .hero-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+            z-index: 2;
+        }
+
+        /* Hero Text */
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .hero-text h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #1eb3ff;
+            text-shadow: 0 0 15px rgba(30, 179, 255, 0.7);
+        }
+
+        .hero-text p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 1.1em;
+            background: linear-gradient(135deg, #1eb3ff, #d37eff);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 0 12px rgba(30, 179, 255, 0.5);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px rgba(30, 179, 255, 0.8);
+        }
+
+       
+        /* Features Section */
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            color: #00bcd4;
+            margin-bottom: 50px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .feature-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .feature-text {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .feature-text h2 {
+            font-size: 28px;
+            color: #00bcd4;
+        }
+
+        .feature-text p {
+            font-size: 18px;
+        }
+
+        .feature-text a {
+            color: #ff4081;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .feature-text a:hover {
+            text-decoration: underline;
+        }
+
+        .feature-image {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .feature-image img {
+            width: 100%;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-image img:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .feature-item {
+                flex-direction: column;
+            }
+
+            .feature-item:nth-child(even) {
+                flex-direction: column;
+            }
+        }
+        /* Review Section */
+        /* User Reviews Section */
 #user-reviews {
     background: #0a0a0a;
-    padding: 60px 20px;
+    padding: 70px 20px;
     text-align: center;
     color: #ffffff;
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
 }
 
 /* Section Title */
 .section-title {
-    font-size: 30px; /* Slightly reduced size */
+    font-size: 36px;
     font-weight: bold;
-    margin-bottom: 25px;
+    margin-bottom: 40px;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
     color: #00eaff;
-    text-shadow: 0 0 10px rgba(0, 234, 255, 0.6); /* Softer glow */
+    text-shadow: 0 0 20px rgba(0, 234, 255, 0.8);
+    position: relative;
+    animation: pulse-glow 2s infinite alternate;
+}
+
+/* Glow Animation */
+@keyframes pulse-glow {
+    0% {
+        text-shadow: 0 0 12px rgba(0, 234, 255, 0.6);
+    }
+
+    100% {
+        text-shadow: 0 0 25px rgba(0, 234, 255, 0.9);
+    }
 }
 
 /* Reviews Container */
@@ -444,43 +363,44 @@ h3 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 18px;
-    max-width: 1200px;
-    margin-bottom: 35px;
+    gap: 25px;
+    max-width: 1300px;
+    margin-bottom: 40px;
 }
 
 /* Review Card */
 .review-item {
-    background: rgba(0, 0, 0, 0.85);
-    max-width: 400px;
-    padding: 18px;
-    border-radius: 10px;
-    box-shadow: 0 0 12px rgba(0, 234, 255, 0.4); /* Softer shadow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: rgba(10, 10, 20, 0.9);
+    max-width: 420px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 234, 255, 0.5);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
     position: relative;
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(12px);
+    overflow: hidden;
 }
 
-/* Subtle Hover Effect */
+/* Review Card Hover */
 .review-item:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 15px rgba(0, 234, 255, 0.7);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 0 25px rgba(0, 234, 255, 0.8);
 }
 
 /* Reviewer Name */
 .reviewer-name {
-    font-size: 18px; /* Reduced size */
+    font-size: 20px;
     font-weight: bold;
     color: #00eaff;
-    margin-bottom: 8px;
-    text-shadow: 0 0 8px rgba(0, 234, 255, 0.6);
+    margin-bottom: 10px;
+    text-shadow: 0 0 12px rgba(0, 234, 255, 0.7);
 }
 
 /* Review Text */
 .review-text {
-    font-size: 15px;
+    font-size: 16px;
     color: #ddd;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 /* Centered Review Form */
@@ -488,150 +408,175 @@ h3 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 25px;
-    background: rgba(0, 0, 0, 0.85);
-    border-radius: 12px;
+    padding: 30px;
+    background: rgba(10, 10, 20, 0.9);
+    border-radius: 15px;
     width: 100%;
-    max-width: 480px;
-    box-shadow: 0 0 15px rgba(255, 0, 255, 0.4); /* Softer glow */
-    backdrop-filter: blur(10px);
+    max-width: 500px;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+    backdrop-filter: blur(12px);
     text-align: center;
-    margin-top: 35px;
+    margin-top: 50px;
 }
 
 /* Form Title */
 .form-title {
-    font-size: 22px;
+    font-size: 26px;
     font-weight: bold;
-    margin-bottom: 18px;
+    margin-bottom: 25px;
     color: #ff00ff;
-    text-shadow: 0 0 8px #ff00ff;
+    text-shadow: 0 0 15px #ff00ff;
 }
 
 /* Input Fields */
 .input-field {
     width: 100%;
-    padding: 12px;
-    margin: 8px 0;
+    padding: 14px;
+    margin: 10px 0;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     background: rgba(50, 50, 50, 0.75);
     color: white;
-    font-size: 15px;
-    box-shadow: inset 0 0 8px rgba(255, 0, 255, 0.3);
-    transition: 0.3s;
+    font-size: 16px;
+    box-shadow: inset 0 0 10px rgba(255, 0, 255, 0.4);
+    transition: box-shadow 0.3s ease;
 }
 
 /* Input Focus */
 .input-field:focus {
     outline: none;
-    box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.6);
 }
 
 /* Placeholder */
 .input-field::placeholder {
-    color: #aaa;
+    color: #bbb;
 }
 
 /* Submit Button */
 .submit-btn {
     background: linear-gradient(135deg, #00eaff, #ff00ff);
     color: black;
-    padding: 12px;
+    padding: 14px 0;
     border: none;
-    border-radius: 10px;
-    font-size: 15px;
+    border-radius: 12px;
+    font-size: 16px;
     cursor: pointer;
-    transition: 0.3s ease-in-out;
+    transition: 0.4s ease-in-out;
     width: 100%;
     font-weight: bold;
-    box-shadow: 0 0 12px #00eaff;
+    box-shadow: 0 0 18px #00eaff;
 }
 
 /* Submit Button Hover */
 .submit-btn:hover {
     background: linear-gradient(135deg, #ff00ff, #00eaff);
-    transform: scale(1.05); /* Less intense scaling */
-    box-shadow: 0 0 15px #ff00ff;
+    transform: scale(1.07);
+    box-shadow: 0 0 25px #ff00ff;
 }
 
 /* Submitted Review Styling */
 .review-item.submitted {
     background: rgba(50, 50, 50, 1);
-    border-left: 4px solid #ff00ff;
-    box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .reviews-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .review-form-container {
-        width: 100%;
-        max-width: 90%;
-    }
+    border-left: 6px solid #ff00ff;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.6);
 }
 
 /* Footer */
+/* Footer */
 footer {
-    text-align: center;
-    padding: 18px;
-    background: linear-gradient(90deg, #000000, #000000);
-    margin-top: 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: rgba(0, 0, 0, 0.6); /* Glass effect */
+    backdrop-filter: blur(10px);
+    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* Footer Text */
+footer p {
+    font-size: 14px;
+    font-weight: bold;
+    color: #00F7FF;
+    letter-spacing: 1px;
 }
 
 /* Footer Links */
 .footer-links {
-    margin-top: 8px;
+    display: flex;
+    gap: 20px;
 }
 
 .footer-links a {
-    color: #00eaff;
+    color: #ffffff;
     text-decoration: none;
-    margin: 0 8px;
+    font-weight: 600;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+}
+
+/* Neon Hover Effect */
+.footer-links a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #c50cbb, #00F7FF);
+    bottom: -2px;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.footer-links a:hover::before {
+    transform: scaleX(1);
 }
 
 /* Modal Styling */
 .modal {
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 1000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding-top: 60px;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    align-items: center;
+    justify-content: center;
 }
 
 /* Modal Content */
 .modal-content {
     background-color: #222;
-    margin: 5% auto;
-    padding: 18px;
-    border-radius: 10px;
-    width: 80%;
+    padding: 25px;
+    border-radius: 15px;
+    max-width: 600px;
     color: #fff;
-    box-shadow: 0 0 12px rgba(255, 0, 255, 0.4);
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+    text-align: center;
 }
 
 /* Close Button */
 .close {
     color: #aaa;
     float: right;
-    font-size: 26px;
+    font-size: 30px;
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 
-.close:hover,
-.close:focus {
+.close:hover {
     color: #ff00ff;
-    text-decoration: none;
     cursor: pointer;
 }
 
@@ -639,28 +584,46 @@ footer {
 .confirm-btn {
     background: #ff00ff;
     border: none;
-    padding: 10px 18px;
+    padding: 12px 20px;
     cursor: pointer;
-    margin-top: 18px;
-    border-radius: 5px;
-    box-shadow: 0 0 12px #ff00ff;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 18px #ff00ff;
+    transition: transform 0.3s ease;
 }
 
 .confirm-btn:hover {
     background: #e600e6;
-    box-shadow: 0 0 15px #ff00ff;
+    box-shadow: 0 0 25px #ff00ff;
+    transform: scale(1.05);
 }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+    .reviews-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .review-form-container {
+        width: 90%;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+}
 
     </style>
 </head>
-<body>
+
+    
+
     <header>
         <h1>DWH</h1>
         <ul class="nav-menu">
             <li><a href="#">Home</a></li>
             <li><a href="#">Features</a></li>
-            <li><a href="#">SubWebsites</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">Contact</a></li>
             
@@ -671,8 +634,8 @@ footer {
                     <span id="username">Guest</span>
                     <div class="dropdown-menu" id="profileMenu">
                         <p id="userStatus">You are not logged in</p>
-                        <a href="#" id="loginLink">Login</a>
-                        <a href="#" id="signupLink">Sign Up</a>
+                        <a href="Login.html" id="loginLink">Login</a>
+                        <a href="Login.html" id="signupLink">Sign Up</a>
                     </div>
                 </div>
             </li>
@@ -680,75 +643,67 @@ footer {
     </header>
     
     <section class="hero">
-        <div class="hero-content">
-            <h1>Dynamic Web Hub</h1>
-            <h2>All AI Tools in One Place</h2>
-            <p>Explore a collection of the most powerful AI tools—weather maps, chatbots, voice recognition, and more.</p>
-            <button>Explore Now</button>
-            <button>Get Started</button>
-        </div>
+        <div class="hero-item">
+            <!-- Hero Text -->
+            <div class="hero-text">
+                <h1>Welcome to Dynamic Web Hub</h1>
+                <p>Dynamic Web Hub is an advanced platform offering powerful AI-based tools and services. We provide intelligent solutions like the MiniSearchAI chatbot, real-time Weather Map, Text-to-Speech, and an AI Image Generator. Our platform delivers fast, accurate data sourced from authorized third-party APIs, ensuring reliability and efficiency. Designed for both creativity and practical needs, Dynamic Web Hub simplifies complex tasks with cutting-edge AI technology. We prioritize user experience through an intuitive interface and continuous improvements. Explore a world of possibilities with our all-in-one AI solution.</p>
+                <a href="#features" class="cta-button">Explore Features</a>
+            </div>
+
+        
     </section>
+
     
 
-    <section class="features-section">
-        <div class="features-container">
-            <!-- Feature 1 -->
-            <div class="feature-container">
-                <div class="feature-box">
-                    <div class="feature-front">
-                        <span class="material-icons feature-icon">cloud</span>
-                        <h3>Weather Map</h3>
-                    </div>
-                    <div class="feature-back">
-                        <p>View real-time weather with interactive maps.</p>
-                        <a href="weather/index.html" class="btn btn-neon">See current Wheather</a>
-                    </div>
-                </div>
+    <div class="container">
+        <h1>Explore Our AI Features</h1>
+
+        <div class="feature-item">
+            <div class="feature-text">
+                <h2>MiniSearchAI Chatbot</h2>
+                <p>Experience advanced conversational AI with our MiniSearchAI chatbot. Engage in real-time interactions and receive intelligent responses powered by cutting-edge AI models.</p>
+                <a href="/minisearch">Learn More →</a>
             </div>
-    
-            <!-- Feature 2 -->
-            <div class="feature-container">
-                <div class="feature-box">
-                    <div class="feature-front">
-                        <span class="material-icons feature-icon">chat</span>
-                        <h3>MiniSearchAI Chatbot</h3>
-                    </div>
-                    <div class="feature-back">
-                        <p>Engage in AI-powered conversations.</p>
-                        <a href="/AI_Chatbot/index.html" class="btn btn-neon">Open MiniSearchAI</a>
-                    </div>
-                </div>
-            </div>
-    
-            <!-- Feature 3 -->
-            <div class="feature-container">
-                <div class="feature-box">
-                    <div class="feature-front">
-                        <span class="material-icons feature-icon">mic</span>
-                        <h3>Voice-to-Text</h3>
-                    </div>
-                    <div class="feature-back">
-                        <p>Convert speech to text with high accuracy.</p>
-                        <a href="speech to text converter/index.html" class="btn btn-neon">Start Converting</a>
-                    </div>
-                </div>
-            </div>
-    
-            <!-- Feature 4 -->
-            <div class="feature-container">
-                <div class="feature-box">
-                    <div class="feature-front">
-                        <span class="material-icons feature-icon">image</span>
-                        <h3>AI Image Generator</h3>
-                    </div>
-                    <div class="feature-back">
-                        <p>Generate high-quality images using AI.</p>
-                        <a href="Image generator/index.html" class="btn btn-neon">Generate Image</a>
-                    </div>
-                </div>
+            <div class="feature-image">
+                <img src="https://cdn.prod.website-files.com/637e5037f3ef83b76dcfc8f9/66c62abcc2ee95d240da1d13_AI%20chatbots.webp" alt="MiniSearchAI Chatbot">
             </div>
         </div>
-    </section>
+
+        <div class="feature-item">
+            <div class="feature-text">
+                <h2>Weather Map</h2>
+                <p>Stay updated with real-time weather conditions using our interactive Weather Map. Get accurate forecasts, severe weather alerts, and localized climate data.</p>
+                <a href="/weather">Explore Weather Map →</a>
+            </div>
+            <div class="feature-image">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN_5EuLuzTYYW7KwggyZ0G7Umug4P1Pw5sKQ&s" alt="Weather Map">
+            </div>
+        </div>
+
+        <div class="feature-item">
+            <div class="feature-text">
+                <h2>Text-to-Speech</h2>
+                <p>Convert text into natural-sounding speech with our AI Text-to-Speech engine. Ideal for creating audio content and enhancing accessibility.</p>
+                <a href="/text-to-speech">Try Text-to-Speech →</a>
+            </div>
+            <div class="feature-image">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ58orZMQXkXWpOI50k9jflmHkIhT2u7pKCRg&s" alt="Text-to-Speech">
+            </div>
+        </div>
+
+        <div class="feature-item">
+            <div class="feature-text">
+                <h2>AI Image Generator</h2>
+                <p>Generate stunning visuals with our AI Image Generator. Transform your ideas into unique images with just a few clicks.</p>
+                <a href="/image-generator">Create Images →</a>
+            </div>
+            <div class="feature-image">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa4VZpS09iUDhujHRkgpPmJwJAffXDKXUwzw&s" alt="AI Image Generator">
+            </div>
+        </div>
+
+    </div>
         <section id="user-reviews">
             <h2 class="section-title">User Reviews</h2>
         
@@ -782,9 +737,9 @@ footer {
     <footer>
         <p>&copy; 2025 Dynamic Web Applications Hub. All rights reserved.</p>
         <div class="footer-links">
-            <a href="#">Terms & Conditions</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Support</a>
+            <a href="terms-conditons.html">Terms & Conditions</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="support.html">Support</a>
         </div>
     </footer>
 
@@ -799,42 +754,42 @@ footer {
     </div>
 
     <script>
- let isLoggedIn = false; // Change to true if user is logged in
-const username = "John Doe"; // Example username
-const profileMenu = document.getElementById("profileMenu");
-const profileIcon = document.getElementById("profileIcon");
-const usernameDisplay = document.getElementById("username");
-const userStatus = document.getElementById("userStatus");
-const loginLink = document.getElementById("loginLink");
-const signupLink = document.getElementById("signupLink");
+        let isLoggedIn = false; // Change to true if user is logged in
+        const username = "John Doe"; // Example username
+        const profileMenu = document.getElementById("profileMenu");
+        const profileIcon = document.getElementById("profileIcon");
+        const usernameDisplay = document.getElementById("username");
+        const userStatus = document.getElementById("userStatus");
+        const loginLink = document.getElementById("loginLink");
+        const signupLink = document.getElementById("signupLink");
 
-function toggleProfileMenu() {
-    profileMenu.style.display = (profileMenu.style.display === "block") ? "none" : "block";
-}
+        function toggleProfileMenu() {
+            profileMenu.style.display = (profileMenu.style.display === "block") ? "none" : "block";
+        }
 
-// Simulating login check
-if (isLoggedIn) {
-    usernameDisplay.textContent = username;
-    userStatus.textContent = "Welcome, " + username;
-    loginLink.style.display = "none";
-    signupLink.style.display = "none";
+        // Simulating login check
+        if (isLoggedIn) {
+            usernameDisplay.textContent = username;
+            userStatus.textContent = "Welcome, " + username;
+            loginLink.style.display = "none";
+            signupLink.style.display = "none";
 
-    // Generate profile initials
-    let initials = username.split(" ").map(name => name[0]).join("").toUpperCase();
-    profileIcon.textContent = initials;
-} else {
-    usernameDisplay.textContent = "Guest";
-    profileIcon.textContent = "G";
-}
+            // Generate profile initials
+            let initials = username.split(" ").map(name => name[0]).join("").toUpperCase();
+            profileIcon.textContent = initials;
+        } else {
+            usernameDisplay.textContent = "Guest";
+            profileIcon.textContent = "G";
+        }
 
 
-// Close dropdown when clicking outside
-document.addEventListener("click", function (event) {
-    const profileDropdown = document.querySelector(".profile-dropdown");
-    if (!profileDropdown.contains(event.target)) {
-        document.getElementById("profile-menu").classList.remove("show");
-    }
-});
+        // Close dropdown when clicking outside
+        document.addEventListener("click", function (event) {
+            const profileDropdown = document.querySelector(".profile-dropdown");
+            if (!profileDropdown.contains(event.target)) {
+                document.getElementById("profile-menu").classList.remove("show");
+            }
+        });
 
 
         // Feature Details for Modals
@@ -866,62 +821,62 @@ document.addEventListener("click", function (event) {
         }
 
         // Close the modal
-        document.querySelector(".close").onclick = function() {
+        document.querySelector(".close").onclick = function () {
             document.getElementById("feature-modal").style.display = "none";
         }
 
         // Close the modal if the user clicks anywhere outside of it
-        window.onclick = function(event) {
+        window.onclick = function (event) {
             if (event.target === document.getElementById("feature-modal")) {
                 document.getElementById("feature-modal").style.display = "none";
             }
         }
 
-    // Function to get logged-in username (simulate authentication)
-    document.addEventListener("DOMContentLoaded", function () {
-    let selectedRating = 0; // Store selected rating
+        // Function to get logged-in username (simulate authentication)
+        document.addEventListener("DOMContentLoaded", function () {
+            let selectedRating = 0; // Store selected rating
 
-    // Handle star rating selection
-    document.querySelectorAll(".star").forEach(star => {
-        star.addEventListener("click", function () {
-            selectedRating = parseInt(this.getAttribute("data-value"));
-            updateStarRating(selectedRating);
-        });
-    });
+            // Handle star rating selection
+            document.querySelectorAll(".star").forEach(star => {
+                star.addEventListener("click", function () {
+                    selectedRating = parseInt(this.getAttribute("data-value"));
+                    updateStarRating(selectedRating);
+                });
+            });
 
-    function updateStarRating(rating) {
-        document.querySelectorAll(".star").forEach(star => {
-            let value = parseInt(star.getAttribute("data-value"));
-            if (value <= rating) {
-                star.style.color = "#ffcc00"; // Highlight selected stars
-            } else {
-                star.style.color = "#ccc"; // Reset unselected stars
+            function updateStarRating(rating) {
+                document.querySelectorAll(".star").forEach(star => {
+                    let value = parseInt(star.getAttribute("data-value"));
+                    if (value <= rating) {
+                        star.style.color = "#ffcc00"; // Highlight selected stars
+                    } else {
+                        star.style.color = "#ccc"; // Reset unselected stars
+                    }
+                });
             }
-        });
-    }
 
-    // Function to add user review
-    window.addUserReview = function () {
-        let reviewText = document.getElementById("user-review").value.trim();
-        let username = getLoggedInUsername(); // Get logged-in username
-        let timestamp = new Date().toLocaleString(); // Get current date & time
+            // Function to add user review
+            window.addUserReview = function () {
+                let reviewText = document.getElementById("user-review").value.trim();
+                let username = getLoggedInUsername(); // Get logged-in username
+                let timestamp = new Date().toLocaleString(); // Get current date & time
 
-        if (!reviewText) {
-            alert("Please write a review before submitting.");
-            return;
-        }
-        if (selectedRating === 0) {
-            alert("Please select a star rating.");
-            return;
-        }
+                if (!reviewText) {
+                    alert("Please write a review before submitting.");
+                    return;
+                }
+                if (selectedRating === 0) {
+                    alert("Please select a star rating.");
+                    return;
+                }
 
-        let reviewsContainer = document.getElementById("reviews-list");
+                let reviewsContainer = document.getElementById("reviews-list");
 
-        // Create review element
-        let reviewItem = document.createElement("div");
-        reviewItem.classList.add("review-item");
+                // Create review element
+                let reviewItem = document.createElement("div");
+                reviewItem.classList.add("review-item");
 
-        reviewItem.innerHTML = `
+                reviewItem.innerHTML = `
             <div class="review-header">
                 <div class="review-avatar">${username.charAt(0).toUpperCase()}</div>
                 <div class="review-info">
@@ -933,30 +888,31 @@ document.addEventListener("click", function (event) {
             <p class="review-text">${reviewText}</p>
         `;
 
-        // Add to the review list
-        reviewsContainer.prepend(reviewItem);
+                // Add to the review list
+                reviewsContainer.prepend(reviewItem);
 
-        // Clear form after submission
-        document.getElementById("user-review").value = "";
-        updateStarRating(0);
-        selectedRating = 0;
-    };
+                // Clear form after submission
+                document.getElementById("user-review").value = "";
+                updateStarRating(0);
+                selectedRating = 0;
+            };
 
-    // Function to simulate fetching the logged-in username
-    function getLoggedInUsername() {
-        return "GuestUser"; // Replace with actual login system
-    }
+            // Function to simulate fetching the logged-in username
+            function getLoggedInUsername() {
+                return "GuestUser"; // Replace with actual login system
+            }
 
-    // Function to generate star icons based on rating
-    function getStarIcons(rating) {
-        let stars = "";
-        for (let i = 1; i <= 5; i++) {
-            stars += `<span class="star-icon" style="color: ${i <= rating ? '#ffcc00' : '#ccc'};">&#9733;</span>`;
-        }
-        return stars;
-    }
-});
+            // Function to generate star icons based on rating
+            function getStarIcons(rating) {
+                let stars = "";
+                for (let i = 1; i <= 5; i++) {
+                    stars += `<span class="star-icon" style="color: ${i <= rating ? '#ffcc00' : '#ccc'};">&#9733;</span>`;
+                }
+                return stars;
+            }
+        });
 
     </script>
 </body>
+
 </html>
