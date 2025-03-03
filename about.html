@@ -2,10 +2,18 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>About Us - Dynamic Web Hub</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <title>About Us - Dynamic Web Hub</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Explore Dynamic Web Hub – your ultimate destination for advanced API integrations and AI-powered utilities.">
+        <meta name="keywords" content="AI tools, API integration, chatbots, image generator, text-to-speech, weather map">
+        <meta property="og:title" content="About Us - Dynamic Web Hub">
+        <meta property="og:description" content="Learn more about our advanced AI solutions and how we empower innovation.">
+        <meta property="og:image" content="https://dynamicwebhub.com/logo.png">
+        <meta property="og:url" content="https://dynamicwebhub.com/about">
+    </head>
+    
 <style>
     /* Global Styles */
 body {
@@ -16,6 +24,157 @@ body {
     color: white;
     line-height: 1.8;
 }
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: rgba(0, 0, 0, 0.6); /* Glass effect */
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* Brand Name */
+h1 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #00F7FF;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Navigation Menu */
+.nav-menu {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-menu a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+}
+
+/* Neon Hover Effect */
+.nav-menu a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #c50cbb, #00F7FF);
+    bottom: -2px;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav-menu a:hover::before {
+    transform: scaleX(1);
+}
+
+
+
+
+        /* Profile Section */
+        .profile-section {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Profile Container */
+        .profile-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            background: #222;
+            padding: 8px 12px;
+            border-radius: 20px;
+            transition: background 0.3s ease;
+        }
+
+        .profile-container:hover {
+            background: #333;
+        }
+
+        /* Profile Icon */
+        .profile-icon {
+            width: 35px;
+            height: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            background: #c50cbb;
+            color: #000;
+            font-weight: bold;
+        }
+
+        /* Profile Dropdown */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 50px;
+            right: 0;
+            background: #000000;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+            width: 180px;
+            text-align: center;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px;
+            color: #c50cbb;
+            text-decoration: none;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .dropdown-menu a:hover {
+            background: #333;
+        }
+
+        /* Show Dropdown */
+        .profile-container.active .dropdown-menu {
+            display: block;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-menu {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 12px;
+                width: 100%;
+            }
+
+            .profile-section {
+                order: 1;
+                margin-left: auto;
+            }
+
+            .dropdown-menu {
+                right: 0;
+            }
+        }
 
 /* About Content */
 .about-content {
@@ -93,6 +252,27 @@ body {
         margin: 0;
     }
 
+    @media (max-width: 768px) {
+    .developer-profile {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .developer-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .about-item h2 {
+        font-size: 28px;
+    }
+
+    .about-item p, .about-item ul {
+        font-size: 16px;
+    }
+}
+
+
     /* Thank You Section */
     .thank-you {
         margin-top: 80px;
@@ -109,11 +289,110 @@ body {
         font-size: 20px;
         color: #fff;
     }
+   
+    .back-to-top {
+        position: fixed; /* Fixed position for better access */
+        bottom: 20px;    /* Distance from the bottom */
+        right: 20px;     /* Distance from the right */
+        padding: 8px 12px;
+        background: #00F7FF;
+        color: black;
+        border-radius: 50%;
+        text-decoration: none;
+        box-shadow: 0 0 10px #00F7FF;
+        font-size: 20px; /* Smaller size */
+        transition: transform 0.3s ease;
+    }
+
+    .back-to-top:hover {
+        transform: scale(1.2); /* Slight zoom effect on hover */
+    }
+/* Footer */
+/* Footer */
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: rgba(0, 0, 0, 0.6); /* Glass effect */
+    backdrop-filter: blur(10px);
+    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* Footer Text */
+footer p {
+    font-size: 14px;
+    font-weight: bold;
+    color: #00F7FF;
+    letter-spacing: 1px;
+}
+
+/* Footer Links */
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+}
+
+/* Neon Hover Effect */
+.footer-links a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #c50cbb, #00F7FF);
+    bottom: -2px;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.footer-links a:hover::before {
+    transform: scaleX(1);
+}
 
 
 </style>
 
 <body>
+
+    <header>
+        <h1>DWH</h1>
+        <ul class="nav-menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            
+            <!-- Profile Section Inside Navbar -->
+            <li class="profile-section">
+                <div class="profile-container" onclick="toggleProfileMenu()">
+                    <div class="profile-icon" id="profileIcon">JD</div>
+                    <span id="username">Guest</span>
+                    <div class="dropdown-menu" id="profileMenu">
+                        <p id="userStatus">You are not logged in</p>
+                        <a href="Login.html" id="loginLink">Login</a>
+                        <a href="signup.html" id="signupLink">Sign Up</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </header>
+    
 
     <!-- About Page Content -->
     <section class="about-content">
@@ -203,34 +482,34 @@ body {
             <h2>Meet Our Developers</h2>
 
             <div class="developer-profile">
-                <img src="https://via.placeholder.com/150" alt="Aryan Sharma" class="developer-image">
+                <img src="https://img.freepik.com/premium-vector/avatar-profile-icon-flat-style-female-user-profile-vector-illustration-isolated-background-women-profile-sign-business-concept_157943-38866.jpg" alt="Shradha Darode" class="developer-image">
                 <div class="developer-info">
-                    <h3>SHradha Darode</h3>
-                    <p>Full-Stack Developer specializing in advanced AI integrations and innovative web solutions. Passionate about transforming ideas into reality.</p>
+                    <h3>Shradha Darode</h3>
+                    <p>"Third-Year B.Sc. Computer Science Student"</p>
                 </div>
             </div>
 
             <div class="developer-profile">
-                <img src="https://via.placeholder.com/150" alt="Neha Patel" class="developer-image">
+                <img src="https://img.freepik.com/premium-vector/avatar-profile-icon-flat-style-female-user-profile-vector-illustration-isolated-background-women-profile-sign-business-concept_157943-38866.jpg" alt="Rutuja Mulay" class="developer-image">
                 <div class="developer-info">
                     <h3>Rutuja Mulay</h3>
-                    <p>Frontend Engineer with a flair for creating intuitive and visually engaging user experiences. Expert in modern web technologies and UI/UX design.</p>
+                    <p>"Third-Year B.Sc. Computer Science Student"</p>
                 </div>
             </div>
 
             <div class="developer-profile">
-                <img src="https://via.placeholder.com/150" alt="Rahul Verma" class="developer-image">
+                <img src="https://img.freepik.com/premium-vector/man-professional-business-casual-young-avatar-icon-illustration_1277826-623.jpg?semt=ais_hybrid" alt="Mahesh Shinde" class="developer-image">
                 <div class="developer-info">
                     <h3>Mahesh Shinde</h3>
-                    <p>Backend Specialist focusing on secure, scalable API development. Expert in cloud infrastructure and optimizing system performance.</p>
+                    <p>"Third-Year B.Sc. Computer Science Student".</p>
                 </div>
             </div>
 
             <div class="developer-profile">
-                <img src="https://via.placeholder.com/150" alt="Sanya Gupta" class="developer-image">
+                <img src="https://img.freepik.com/premium-vector/man-professional-business-casual-young-avatar-icon-illustration_1277826-623.jpg?semt=ais_hybrid" alt="Vaibhav Sabale" class="developer-image">
                 <div class="developer-info">
                     <h3>Vaibhav Sabale</h3>
-                    <p>AI Engineer dedicated to building intelligent models and data-driven applications. Skilled in machine learning and natural language processing.</p>
+                    <p>"Third-Year B.Sc. Computer Science Student".</p>
                 </div>
             </div>
 
@@ -241,10 +520,60 @@ body {
             <h2>Thanks for Visiting Dynamic Web Hub!</h2>
             <p>We appreciate your interest in our platform. Stay tuned for more innovations and cutting-edge solutions. Your journey with advanced AI starts here!</p>
         </div>
+        <a href="#" class="back-to-top"> ⬆ </a>
 
     </div>
     </section>
 
+    <footer>
+        <p> 2025 Dynamic Web Applications Hub. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="terms-conditons.html">Terms & Conditions</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="support.html">Support</a>
+        </div>
+    </footer>
+    <script>
+        let isLoggedIn = false; // Change to true if user is logged in
+        const username = "John Doe"; // Example username
+        const profileMenu = document.getElementById("profileMenu");
+        const profileIcon = document.getElementById("profileIcon");
+        const usernameDisplay = document.getElementById("username");
+        const userStatus = document.getElementById("userStatus");
+        const loginLink = document.getElementById("loginLink");
+        const signupLink = document.getElementById("signupLink");
+
+        function toggleProfileMenu() {
+            profileMenu.style.display = (profileMenu.style.display === "block") ? "none" : "block";
+        }
+
+        // Simulating login check
+        if (isLoggedIn) {
+            usernameDisplay.textContent = username;
+            userStatus.textContent = "Welcome, " + username;
+            loginLink.style.display = "none";
+            signupLink.style.display = "none";
+
+            // Generate profile initials
+            let initials = username.split(" ").map(name => name[0]).join("").toUpperCase();
+            profileIcon.textContent = initials;
+        } else {
+            usernameDisplay.textContent = "Guest";
+            profileIcon.textContent = "G";
+        }
+
+
+        // Close dropdown when clicking outside
+        document.addEventListener("click", function (event) {
+            const profileDropdown = document.querySelector(".profile-dropdown");
+            if (!profileDropdown.contains(event.target)) {
+                document.getElementById("profile-menu").classList.remove("show");
+            }
+        });
+
+    </script>
+
 </body>
+
 
 </html>
