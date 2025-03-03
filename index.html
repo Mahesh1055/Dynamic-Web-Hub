@@ -358,129 +358,209 @@ h1 {
     }
 }
 
-/* Reviews Container */
-.reviews-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 25px;
-    max-width: 1300px;
-    margin-bottom: 40px;
+    /* Reviews Container */
+    .reviews-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 25px;
+        max-width: 1300px;
+        margin-bottom: 40px;
+    }
+
+    /* Review Card */
+    .review-item {
+        background: rgba(10, 10, 20, 0.9);
+        max-width: 420px;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 0 15px rgba(0, 234, 255, 0.5);
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        position: relative;
+        backdrop-filter: blur(12px);
+        overflow: hidden;
+    }
+
+    /* Review Card Hover */
+    .review-item:hover {
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 0 25px rgba(0, 234, 255, 0.8);
+    }
+
+    /* Reviewer Name */
+    .reviewer-name {
+        font-size: 20px;
+        font-weight: bold;
+        color: #00eaff;
+        margin-bottom: 10px;
+        text-shadow: 0 0 12px rgba(0, 234, 255, 0.7);
+    }
+
+    /* Review Text */
+    .review-text {
+        font-size: 16px;
+        color: #ddd;
+        line-height: 1.6;
+    }
+
+    /* Centered Review Form */
+    .review-form-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px;
+        background: rgba(10, 10, 20, 0.9);
+        border-radius: 15px;
+        width: 100%;
+        max-width: 500px;
+        box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+        backdrop-filter: blur(12px);
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    /* Form Title */
+    .form-title {
+        font-size: 26px;
+        font-weight: bold;
+        margin-bottom: 25px;
+        color: #ff00ff;
+        text-shadow: 0 0 15px #ff00ff;
+    }
+
+    /* Input Fields */
+    .input-field {
+        width: 100%;
+        padding: 14px;
+        margin: 10px 0;
+        border: none;
+        border-radius: 10px;
+        background: rgba(50, 50, 50, 0.75);
+        color: white;
+        font-size: 16px;
+        box-shadow: inset 0 0 10px rgba(255, 0, 255, 0.4);
+        transition: box-shadow 0.3s ease;
+    }
+
+    /* Input Focus */
+    .input-field:focus {
+        outline: none;
+        box-shadow: 0 0 20px rgba(255, 0, 255, 0.6);
+    }
+
+    /* Placeholder */
+    .input-field::placeholder {
+        color: #bbb;
+    }
+
+    /* Submit Button */
+    .submit-btn {
+        background: linear-gradient(135deg, #00eaff, #ff00ff);
+        color: black;
+        padding: 14px 0;
+        border: none;
+        border-radius: 12px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.4s ease-in-out;
+        width: 100%;
+        font-weight: bold;
+        box-shadow: 0 0 18px #00eaff;
+    }
+
+    /* Submit Button Hover */
+    .submit-btn:hover {
+        background: linear-gradient(135deg, #ff00ff, #00eaff);
+        transform: scale(1.07);
+        box-shadow: 0 0 25px #ff00ff;
+    }
+
+    /* Submitted Review Styling */
+    .review-item.submitted {
+        background: rgba(50, 50, 50, 1);
+        border-left: 6px solid #ff00ff;
+        box-shadow: 0 0 20px rgba(255, 0, 255, 0.6);
+    }
+
+    /* Review Container */
+#reviews-list {
+    margin-top: 20px;
 }
 
-/* Review Card */
+/* Individual Review Item */
 .review-item {
-    background: rgba(10, 10, 20, 0.9);
-    max-width: 420px;
-    padding: 20px;
+    background: #1a1a1a;
+    padding: 15px;
     border-radius: 12px;
-    box-shadow: 0 0 15px rgba(0, 234, 255, 0.5);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    position: relative;
-    backdrop-filter: blur(12px);
-    overflow: hidden;
-}
-
-/* Review Card Hover */
-.review-item:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 0 25px rgba(0, 234, 255, 0.8);
-}
-
-/* Reviewer Name */
-.reviewer-name {
-    font-size: 20px;
-    font-weight: bold;
-    color: #00eaff;
-    margin-bottom: 10px;
-    text-shadow: 0 0 12px rgba(0, 234, 255, 0.7);
-}
-
-/* Review Text */
-.review-text {
-    font-size: 16px;
-    color: #ddd;
-    line-height: 1.6;
-}
-
-/* Centered Review Form */
-.review-form-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 30px;
-    background: rgba(10, 10, 20, 0.9);
-    border-radius: 15px;
-    width: 100%;
-    max-width: 500px;
-    box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
-    backdrop-filter: blur(12px);
-    text-align: center;
-    margin-top: 50px;
-}
-
-/* Form Title */
-.form-title {
-    font-size: 26px;
-    font-weight: bold;
-    margin-bottom: 25px;
-    color: #ff00ff;
-    text-shadow: 0 0 15px #ff00ff;
-}
-
-/* Input Fields */
-.input-field {
-    width: 100%;
-    padding: 14px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 10px;
-    background: rgba(50, 50, 50, 0.75);
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     color: white;
-    font-size: 16px;
-    box-shadow: inset 0 0 10px rgba(255, 0, 255, 0.4);
-    transition: box-shadow 0.3s ease;
+    position: relative;
 }
 
-/* Input Focus */
-.input-field:focus {
-    outline: none;
-    box-shadow: 0 0 20px rgba(255, 0, 255, 0.6);
+/* Review Header */
+.review-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-/* Placeholder */
-.input-field::placeholder {
+/* User Avatar */
+.review-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #4CAF50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* Review Info */
+.review-info h4 {
+    margin: 0;
+    font-size: 18px;
+}
+.review-date {
+    font-size: 12px;
     color: #bbb;
 }
 
-/* Submit Button */
-.submit-btn {
-    background: linear-gradient(135deg, #00eaff, #ff00ff);
-    color: black;
-    padding: 14px 0;
-    border: none;
-    border-radius: 12px;
-    font-size: 16px;
+/* Star Rating */
+.review-rating {
+    margin: 8px 0;
+}
+
+/* Menu Dots */
+.review-menu {
+    position: relative;
     cursor: pointer;
-    transition: 0.4s ease-in-out;
-    width: 100%;
-    font-weight: bold;
-    box-shadow: 0 0 18px #00eaff;
+}
+.menu-dots {
+    font-size: 20px;
 }
 
-/* Submit Button Hover */
-.submit-btn:hover {
-    background: linear-gradient(135deg, #ff00ff, #00eaff);
-    transform: scale(1.07);
-    box-shadow: 0 0 25px #ff00ff;
+/* Hidden Menu Options */
+.menu-options {
+    display: none;
+    position: absolute;
+    right: 0;
+    background: #333;
+    border-radius: 8px;
+    padding: 5px 0;
+}
+.menu-options.show-menu {
+    display: block;
+}
+.menu-options button {
+    background: none;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
 }
 
-/* Submitted Review Styling */
-.review-item.submitted {
-    background: rgba(50, 50, 50, 1);
-    border-left: 6px solid #ff00ff;
-    box-shadow: 0 0 20px rgba(255, 0, 255, 0.6);
-}
 
 /* Footer */
 /* Footer */
@@ -635,7 +715,7 @@ footer p {
                     <div class="dropdown-menu" id="profileMenu">
                         <p id="userStatus">You are not logged in</p>
                         <a href="Login.html" id="loginLink">Login</a>
-                        <a href="Login.html" id="signupLink">Sign Up</a>
+                        <a href="signup.html" id="signupLink">Sign Up</a>
                     </div>
                 </div>
             </li>
@@ -663,7 +743,7 @@ footer p {
             <div class="feature-text">
                 <h2>MiniSearchAI Chatbot</h2>
                 <p>Experience advanced conversational AI with our MiniSearchAI chatbot. Engage in real-time interactions and receive intelligent responses powered by cutting-edge AI models.</p>
-                <a href="/minisearch">Learn More →</a>
+                <a href="/AI_Chatbot/index.html">Learn More →</a>
             </div>
             <div class="feature-image">
                 <img src="https://cdn.prod.website-files.com/637e5037f3ef83b76dcfc8f9/66c62abcc2ee95d240da1d13_AI%20chatbots.webp" alt="MiniSearchAI Chatbot">
@@ -674,7 +754,7 @@ footer p {
             <div class="feature-text">
                 <h2>Weather Map</h2>
                 <p>Stay updated with real-time weather conditions using our interactive Weather Map. Get accurate forecasts, severe weather alerts, and localized climate data.</p>
-                <a href="/weather">Explore Weather Map →</a>
+                <a href="/weather/index.html">Explore Weather Map →</a>
             </div>
             <div class="feature-image">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN_5EuLuzTYYW7KwggyZ0G7Umug4P1Pw5sKQ&s" alt="Weather Map">
@@ -685,7 +765,7 @@ footer p {
             <div class="feature-text">
                 <h2>Text-to-Speech</h2>
                 <p>Convert text into natural-sounding speech with our AI Text-to-Speech engine. Ideal for creating audio content and enhancing accessibility.</p>
-                <a href="/text-to-speech">Try Text-to-Speech →</a>
+                <a href="/speech to text converter/index.html">Try Text-to-Speech →</a>
             </div>
             <div class="feature-image">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ58orZMQXkXWpOI50k9jflmHkIhT2u7pKCRg&s" alt="Text-to-Speech">
@@ -696,7 +776,7 @@ footer p {
             <div class="feature-text">
                 <h2>AI Image Generator</h2>
                 <p>Generate stunning visuals with our AI Image Generator. Transform your ideas into unique images with just a few clicks.</p>
-                <a href="/image-generator">Create Images →</a>
+                <a href="/Image generator/index.html">Create Images →</a>
             </div>
             <div class="feature-image">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa4VZpS09iUDhujHRkgpPmJwJAffXDKXUwzw&s" alt="AI Image Generator">
@@ -735,7 +815,7 @@ footer p {
         
 
     <footer>
-        <p>&copy; 2025 Dynamic Web Applications Hub. All rights reserved.</p>
+        <p> 2025 Dynamic Web Applications Hub. All rights reserved.</p>
         <div class="footer-links">
             <a href="terms-conditons.html">Terms & Conditions</a>
             <a href="privacy-policy.html">Privacy Policy</a>
@@ -792,85 +872,193 @@ footer p {
         });
 
 
-        // Function to get logged-in username (simulate authentication)
         document.addEventListener("DOMContentLoaded", function () {
-            let selectedRating = 0; // Store selected rating
+    let selectedRating = 0; // Store selected rating
 
-            // Handle star rating selection
-            document.querySelectorAll(".star").forEach(star => {
-                star.addEventListener("click", function () {
-                    selectedRating = parseInt(this.getAttribute("data-value"));
-                    updateStarRating(selectedRating);
-                });
-            });
+    // Load reviews from localStorage on page load
+    loadReviews();
 
-            function updateStarRating(rating) {
-                document.querySelectorAll(".star").forEach(star => {
-                    let value = parseInt(star.getAttribute("data-value"));
-                    if (value <= rating) {
-                        star.style.color = "#ffcc00"; // Highlight selected stars
-                    } else {
-                        star.style.color = "#ccc"; // Reset unselected stars
-                    }
-                });
-            }
+    // Handle star rating selection
+    document.querySelectorAll(".star").forEach(star => {
+        star.addEventListener("click", function () {
+            selectedRating = parseInt(this.getAttribute("data-value"));
+            updateStarRating(selectedRating);
+        });
+    });
 
-            // Function to add user review
-            window.addUserReview = function () {
-                let reviewText = document.getElementById("user-review").value.trim();
-                let username = getLoggedInUsername(); // Get logged-in username
-                let timestamp = new Date().toLocaleString(); // Get current date & time
+    // Update star rating display
+    function updateStarRating(rating) {
+        document.querySelectorAll(".star").forEach(star => {
+            let value = parseInt(star.getAttribute("data-value"));
+            star.style.color = value <= rating ? "#ffcc00" : "#ccc";
+        });
+    }
 
-                if (!reviewText) {
-                    alert("Please write a review before submitting.");
-                    return;
-                }
-                if (selectedRating === 0) {
-                    alert("Please select a star rating.");
-                    return;
-                }
+    // Function to add user review
+    window.addUserReview = function () {
+        const reviewText = document.getElementById("user-review").value.trim();
+        const username = getLoggedInUsername();
+        const timestamp = new Date().toLocaleString();
 
-                let reviewsContainer = document.getElementById("reviews-list");
+        // Input validation
+        if (!reviewText) {
+            alert("Please write a review before submitting.");
+            return;
+        }
+        if (reviewText.length < 10 || reviewText.length > 500) {
+            alert("Review must be between 10 and 500 characters.");
+            return;
+        }
+        if (selectedRating === 0) {
+            alert("Please select a star rating.");
+            return;
+        }
 
-                // Create review element
-                let reviewItem = document.createElement("div");
-                reviewItem.classList.add("review-item");
+        // Create review object with unique ID
+        const newReview = {
+            id: Date.now(), // Unique ID for each review
+            username,
+            timestamp,
+            reviewText,
+            rating: selectedRating
+        };
 
-                reviewItem.innerHTML = `
+        // Add and save the review
+        addReviewElement(newReview);
+        saveReview(newReview);
+
+        // Clear form and reset rating
+        document.getElementById("user-review").value = "";
+        updateStarRating(0);
+        selectedRating = 0;
+    };
+
+    // Simulate fetching the logged-in username (replace with real auth system)
+    function getLoggedInUsername() {
+        return "GuestUser";
+    }
+
+    // Create and append a review element with menu for edit and delete
+    function addReviewElement({ id, username, timestamp, reviewText, rating }) {
+        const reviewsContainer = document.getElementById("reviews-list");
+        const reviewItem = document.createElement("div");
+        reviewItem.classList.add("review-item");
+        reviewItem.setAttribute("data-id", id); // Unique ID for identification
+
+        reviewItem.innerHTML = `
             <div class="review-header">
                 <div class="review-avatar">${username.charAt(0).toUpperCase()}</div>
                 <div class="review-info">
                     <h4 class="reviewer-name">${username}</h4>
                     <span class="review-date">${timestamp}</span>
                 </div>
+                <div class="review-menu">
+                    <span class="menu-dots" onclick="toggleMenu(${id})">⋮</span>
+                    <div class="menu-options" id="menu-${id}">
+                        <button class="edit-review" onclick="editReview(${id})">✏️</button>
+                        <button class="delete-review" onclick="deleteReview(${id})">🗑️</button>
+                    </div>
+                </div>
             </div>
-            <div class="review-rating">${getStarIcons(selectedRating)}</div>
+            <div class="review-rating">${getStarIcons(rating)}</div>
             <p class="review-text">${reviewText}</p>
         `;
+        reviewsContainer.prepend(reviewItem);
+    }
 
-                // Add to the review list
-                reviewsContainer.prepend(reviewItem);
-
-                // Clear form after submission
-                document.getElementById("user-review").value = "";
-                updateStarRating(0);
-                selectedRating = 0;
-            };
-
-            // Function to simulate fetching the logged-in username
-            function getLoggedInUsername() {
-                return "GuestUser"; // Replace with actual login system
-            }
-
-            // Function to generate star icons based on rating
-            function getStarIcons(rating) {
-                let stars = "";
-                for (let i = 1; i <= 5; i++) {
-                    stars += `<span class="star-icon" style="color: ${i <= rating ? '#ffcc00' : '#ccc'};">&#9733;</span>`;
-                }
-                return stars;
+    // Toggle the menu visibility
+    window.toggleMenu = function (reviewId) {
+        document.querySelectorAll(".menu-options").forEach(menu => {
+            if (menu.id === `menu-${reviewId}`) {
+                menu.classList.toggle("show-menu");
+            } else {
+                menu.classList.remove("show-menu");
             }
         });
+    };
+
+    // Generate star icons based on rating
+    function getStarIcons(rating) {
+        let stars = "";
+        for (let i = 1; i <= 5; i++) {
+            stars += `<span class="star-icon" style="color: ${i <= rating ? '#ffcc00' : '#ccc'};">&#9733;</span>`;
+        }
+        return stars;
+    }
+
+    // Save a single review to localStorage
+    function saveReview(review) {
+        const reviews = getStoredReviews();
+        reviews.unshift(review); // Add new review to the beginning
+        safeLocalStorage("userReviews", reviews);
+    }
+
+    // Load reviews from localStorage
+    function loadReviews() {
+        const savedReviews = getStoredReviews();
+        savedReviews.forEach(addReviewElement);
+    }
+
+    // Get stored reviews as an array
+    function getStoredReviews() {
+        try {
+            return JSON.parse(localStorage.getItem("userReviews")) || [];
+        } catch (e) {
+            console.error("Error parsing stored reviews:", e);
+            return [];
+        }
+    }
+
+    // Safe localStorage access (with error handling)
+    function safeLocalStorage(key, value) {
+        try {
+            if (value === undefined) {
+                return JSON.parse(localStorage.getItem(key)) || [];
+            }
+            localStorage.setItem(key, JSON.stringify(value));
+        } catch (e) {
+            console.error("LocalStorage Error:", e);
+        }
+    }
+
+    // Delete a specific review by ID
+    window.deleteReview = function (reviewId) {
+        if (confirm("Are you sure you want to delete this review?")) {
+            let reviews = getStoredReviews();
+            reviews = reviews.filter(review => review.id !== reviewId);
+            safeLocalStorage("userReviews", reviews);
+
+            document.querySelector(`.review-item[data-id="${reviewId}"]`).remove();
+        }
+    };
+
+    // Edit a specific review by ID
+    window.editReview = function (reviewId) {
+        const reviews = getStoredReviews();
+        const reviewToEdit = reviews.find(review => review.id === reviewId);
+        if (!reviewToEdit) return;
+
+        const newReviewText = prompt("Edit your review:", reviewToEdit.reviewText);
+        if (newReviewText && newReviewText.trim().length >= 10) {
+            reviewToEdit.reviewText = newReviewText.trim();
+            safeLocalStorage("userReviews", reviews);
+
+            document.getElementById("reviews-list").innerHTML = "";
+            loadReviews();
+        } else {
+            alert("Review must be at least 10 characters long.");
+        }
+    };
+
+    // Clear all reviews (optional functionality)
+    window.clearReviews = function () {
+        if (confirm("Are you sure you want to delete all reviews?")) {
+            localStorage.removeItem("userReviews");
+            document.getElementById("reviews-list").innerHTML = "";
+        }
+    };
+});
+
 
     </script>
 </body>
